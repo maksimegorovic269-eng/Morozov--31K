@@ -1,0 +1,260 @@
+class TinyHorn:
+    def play(self):
+        print("toot")
+
+# Пример 1
+horn = TinyHorn()
+horn.play()
+
+# Пример 2
+horn = TinyHorn()
+horn.play()
+horn.play()
+horn.play()
+
+class CounterButton:
+    def __init__(self):
+        self._count = 0
+
+    def press(self):
+        self._count += 1
+
+    def count(self):
+        return self._count
+
+    def reset(self):
+        self._count = 0
+
+# Пример 1
+button = CounterButton()
+button.press()
+button.press()
+print(button.count())
+button.press()
+print(button.count())
+
+# Пример 2
+button = CounterButton()
+button.press()
+button.press()
+print(button.count())
+button.reset()
+button.press()
+print(button.count())
+
+class SeeSaw:
+    def __init__(self):
+        self.left_weight = 0
+        self.right_weight = 0
+
+    def add_right(self, weight):
+        self.right_weight += weight
+
+    def add_left(self, weight):
+        self.left_weight += weight
+
+    def balance(self):
+        if self.left_weight == self.right_weight:
+            return '='
+        elif self.right_weight > self.left_weight:
+            return 'R'
+        else:
+            return 'L'
+
+
+# Пример 1
+seesaw = SeeSaw()
+seesaw.add_right(8)
+seesaw.add_left(5)
+seesaw.add_left(4)
+print(seesaw.balance())
+
+class NumberDivider:
+    def __init__(self):
+        self.divisible_by_3 = []
+        self.not_divisible_by_3 = []
+
+    def add_number(self, n):
+        if n % 3 == 0:
+            self.divisible_by_3.append(n)
+        else:
+            self.not_divisible_by_3.append(n)
+
+    def divisible(self):
+        return self.divisible_by_3
+
+    def not_divisible(self):
+        return self.not_divisible_by_3
+
+
+divider = NumberDivider()
+divider.add_number(1)
+divider.add_number(3)
+divider.add_number(4)
+divider.add_number(6)
+divider.add_number(7)
+print(divider.divisible())
+print(divider.not_divisible())
+
+class FlipFlopBell:
+    def __init__(self):
+        self._flip = True
+
+    def ring(self):
+        if self._flip:
+            print("flip")
+        else:
+            print("flop")
+        self._flip = not self._flip
+
+
+bell = FlipFlopBell()
+bell.ring()
+bell.ring()
+bell.ring()
+
+class MinMaxNumberFinder:
+    def __init__(self):
+        self.numbers = []
+
+    def add_number(self, n):
+        self.numbers.append(n)
+
+    def min_numbers(self):
+        if not self.numbers:
+            return []
+        min_val = min(self.numbers)
+        return [n for n in self.numbers if n == min_val]
+
+    def max_numbers(self):
+        if not self.numbers:
+            return []
+        max_val = max(self.numbers)
+        return sorted(set(n for n in self.numbers if n == max_val))
+
+
+# Пример 1
+finder = MinMaxNumberFinder()
+finder.add_number(5)
+finder.add_number(1)
+finder.add_number(9)
+finder.add_number(1)
+finder.add_number(7)
+print(finder.min_numbers())
+print(finder.max_numbers())
+
+class BoundingBox2D:
+    def __init__(self):
+        self.points = []
+
+    def add_point(self, x, y):
+        self.points.append((x, y))
+
+    def left_x(self):
+        return min(p[0] for p in self.points)
+
+    def right_x(self):
+        return max(p[0] for p in self.points)
+
+    def bottom_y(self):
+        return min(p[1] for p in self.points)
+
+    def top_y(self):
+        return max(p[1] for p in self.points)
+
+    def width(self):
+        return self.right_x() - self.left_x()
+
+    def height(self):
+        return self.top_y() - self.bottom_y()
+
+
+# Пример 1
+box = BoundingBox2D()
+box.add_point(-2, -3)
+box.add_point(4, 5)
+print(box.left_x(), box.right_x())
+print(box.bottom_y(), box.top_y())
+print(box.width(), box.height())
+
+class WordCaseSeparator:
+    def __init__(self):
+        self.upper_case = []
+        self.lower_case = []
+
+    def add_word(self, word):
+        if word and word[0].isupper():
+            self.upper_case.append(word)
+        else:
+            self.lower_case.append(word)
+
+    def upper_case_words(self):
+        return self.upper_case
+
+    def lower_case_words(self):
+        return self.lower_case
+
+
+# Пример 1
+separator = WordCaseSeparator()
+separator.add_word("Apple")
+separator.add_word("banana")
+separator.add_word("Cherry")
+separator.add_word("date")
+print(separator.upper_case_words())
+print(separator.lower_case_words())
+
+class EvenOddSumTracker:
+    def __init__(self):
+        self.even_sum_val = 0
+        self.odd_sum_val = 0
+
+    def add_number(self, n):
+        if n % 2 == 0:
+            self.even_sum_val += n
+        else:
+            self.odd_sum_val += n
+
+    def even_sum(self):
+        return self.even_sum_val
+
+    def odd_sum(self):
+        return self.odd_sum_val
+
+
+# Пример 1
+tracker = EvenOddSumTracker()
+tracker.add_number(2)
+tracker.add_number(3)
+tracker.add_number(4)
+tracker.add_number(5)
+print(tracker.even_sum())
+print(tracker.odd_sum())
+
+class AlternatingCounter:
+    def __init__(self):
+        self.a_count = 0
+        self.b_count = 0
+        self._toggle = True  # True для a, False для b
+
+    def count(self):
+        if self._toggle:
+            self.a_count += 1
+        else:
+            self.b_count += 1
+        self._toggle = not self._toggle
+        return (self.a_count, self.b_count)
+
+    def reset(self):
+        self.a_count = 0
+        self.b_count = 0
+        self._toggle = True
+
+
+# Пример 1
+counter = AlternatingCounter()
+print(counter.count())
+print(counter.count())
+print(counter.count())
+counter.reset()
+print(counter.count())
