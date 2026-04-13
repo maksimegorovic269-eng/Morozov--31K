@@ -1,0 +1,7 @@
+2026-04-01 ERROR Something failed
+2026-04-01 INFO Startup complete
+2026-04-02 WARNING Low memory
+2026-04-03 ERROR Crash detected
+2026-04-03 ERROR Disk full
+2026-04-04 INFO All good
+2026-04-05 ERROR Network timeout

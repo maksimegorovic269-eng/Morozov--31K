@@ -1,0 +1,7 @@
+File 1 - first line
+File 1 - second line
+Common line
+
+File 2 - first line
+File 2 - second line
+Common line

@@ -1,0 +1,9 @@
+Hello, world! This is a test.
+Python is great, and python is fun.
+Data, data, DATA everywhere...
+Apple banana apple Orange banana.
+First line starts with capital.
+second line starts with lowercase.
+ERROR should not be here, just a word.
+Unique line appears once.
+Another-Line with punctuation!!!
